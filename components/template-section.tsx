@@ -1,27 +1,28 @@
 import { CopyBlock } from "./copy-block"
 
-const masterTemplate = `Use the reference image [REFERENCE].jpg as visual inspiration.
+const masterTemplate = `A photo-realistic commercial scene, meticulously designed using the 'Prompt Architecture V5' framework.
+This prompt is a technical instruction for a generative AI model to blend an existing product with a reference composition,
+achieving ultra-high-fidelity label rendering.
+- The overall scene, including composition, lighting palette, background textures, camera angle, shadows, and reflections, 
+must be a direct visual translation of the concepts found in the reference image provided as [IMAGEM_DE_REFERENCIA].jpg. 
+- This is the visual blueprint for the atmosphere and spatial arrangement.
+- The central subject of this composition is the exact container and bottle shape found in the product image provided as
+[IMAGEM_DO_PRODUTO].jpg. This is the object being placed into the scene. Its packaging proportions, material properties, 
+brand logo, and overall 
+color palette must be preserved with perfect fidelity.
+- The front label on the main bottle must be perfectly readable and textually precise. The layout, typographic hierarchy, and every single word 
+and character must follow the structure below exactly, with zero distortion and perfect alignment (anti-aliased, vector-like sharpness):
 
-Extract from the reference image: composition, lighting, background palette, camera angle, shadows, reflections.
+LABEL STRUCTURE START
+[LABEL_LAYOUT_GRID]
+LABEL STRUCTURE END
 
-The product used in the composition is attached as [PRODUCT].jpg.
-
-Preserve packaging fidelity: bottle shape, packaging proportions, label layout, brand logo, colors and materials.
-
-Front label must be perfectly readable. Typography must be ultra sharp, high resolution, anti-aliased and optically clear.
-
-Language of label: [INSERT LANGUAGE]
-
-Label layout grid: brand → product line → product type → benefits → ingredients → volume.
-
-Label text layout exactly as follows:
-[INSERT LABEL STRUCTURE]
-
-sharp product label typography, editorial product photography, high resolution packaging text, vector-like label clarity
-
-Ultra realistic commercial product photography, studio lighting, soft shadows, extremely sharp focus
-
-no distorted text, no misspelled text, no fake letters, perfect packaging typography, clean label layout`
+- The visual style is an ultra-realistic, high-resolution commercial product photograph. 
+- The style is that of professional editorial advertising. It features studio lighting that highlights 
+product details, soft and precise shadows, and an extremely sharp focus across the entire label area. 
+- The typography on the label must be optically clear and high resolution. 
+- The final output must be completely free of misspelled text, distorted letters, or fake characters,
+ensuring perfect packaging typography and a clean, premium label design.`
 
 const labelExample = `reference_image: produto_avene.jpg
 product_name: Hydrance Aqua-Gel

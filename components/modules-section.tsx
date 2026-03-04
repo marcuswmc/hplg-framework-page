@@ -14,92 +14,60 @@ interface Module {
 
 const modules: Module[] = [
   {
-    id: "reference",
+    id: "scene",
     number: "01",
-    title: "Reference Module",
+    title: "Scene Blueprint",
     description:
-      "Define a inspiracao visual usada para guiar a composicao e estetica da imagem gerada.",
-    prompt: `Use the reference image [REFERENCE].jpg as visual inspiration.`,
+      "Define o blueprint visual da cena usando uma imagem de referencia. Composicao, iluminacao, paleta, angulo de camera, sombras e reflexos sao extraidos desta referencia.",
+    prompt: `A photo-realistic commercial scene, meticulously designed using the 'Prompt Architecture V5' framework.
+
+The overall scene, including composition, lighting palette, background textures, camera angle, shadows, and reflections, must be a direct visual translation of the concepts found in the reference image provided as [IMAGEM_DE_REFERENCIA].jpg.
+
+This is the visual blueprint for the atmosphere and spatial arrangement.`,
   },
   {
-    id: "concept",
+    id: "subject",
     number: "02",
-    title: "Concept Extraction Module",
+    title: "Central Subject",
     description:
-      "Extraia apenas os atributos visuais relevantes da imagem de referencia para guiar a geracao.",
-    prompt: `Extract from the reference image: composition, lighting, background palette, camera angle, shadows, reflections, product placement, depth and perspective.`,
-  },
-  {
-    id: "identity",
-    number: "03",
-    title: "Product Identity Module",
-    description:
-      "Defina o produto que sera o assunto principal da cena gerada.",
-    prompt: `The product used in the composition is attached as [PRODUCT].jpg. Use this product as the primary subject of the scene.`,
-  },
-  {
-    id: "consistency",
-    number: "04",
-    title: "Product Consistency Module",
-    description:
-      "Garanta que a embalagem permaneca identica ao produto original em todos os detalhes.",
-    prompt: `The packaging must remain identical to the original product. Preserve: bottle shape, packaging proportions, brand logo, label layout, packaging colors, materials, cap or pump design.`,
+      "Define o produto como sujeito central da composicao. O container, formato, proporcoes e identidade visual devem ser preservados com fidelidade perfeita.",
+    prompt: `The central subject of this composition is the exact container and bottle shape found in the product image provided as [IMAGEM_DO_PRODUTO].jpg.
+
+This is the object being placed into the scene. Its packaging proportions, material properties, brand logo, and overall color palette must be preserved with perfect fidelity.`,
   },
   {
     id: "label",
-    number: "05",
-    title: "Label Replication Module",
+    number: "03",
+    title: "Label Structure",
     description:
-      "O rotulo frontal do produto deve ser perfeitamente legivel com tipografia de alta resolucao.",
-    prompt: `Front product label must be perfectly readable. Typography must be: ultra sharp, high resolution, anti-aliased, optically clear, commercial packaging fidelity.`,
-  },
-  {
-    id: "grid",
-    number: "06",
-    title: "Label Grid System",
-    description:
-      "Defina a hierarquia estrutural do rotulo para organizar as informacoes de forma clara.",
-    prompt: `Label layout grid:
-Top → Brand Name
-Upper Middle → Product Line
-Center → Product Type
-Lower Middle → Product Benefits
-Lower Section → Active Ingredients
-Bottom → Volume / Size`,
-  },
-  {
-    id: "typography",
-    number: "07",
-    title: "Typography Reinforcement",
-    description:
-      "Tokens de reforco tipografico para garantir clareza maxima no texto da embalagem.",
-    prompt: `sharp product label typography, editorial product photography, high resolution packaging text, clean cosmetic label, vector-like label clarity, packaging typography fidelity, macro packaging detail`,
-  },
-  {
-    id: "camera",
-    number: "08",
-    title: "Photography & Camera Module",
-    description:
-      "Configuracoes de camera e iluminacao para fotografia comercial de produto ultra realista.",
-    prompt: `Ultra realistic commercial product photography, studio lighting, soft shadows, premium beauty campaign aesthetic, extremely sharp focus, accurate packaging proportions.
+      "O rotulo frontal deve ser perfeitamente legivel. Layout, hierarquia tipografica e cada palavra devem seguir a estrutura definida com zero distorcao.",
+    prompt: `The front label on the main bottle must be perfectly readable and textually precise.
 
-Optional camera control: 85mm product photography lens, macro product photography, studio diffusion lighting.`,
+The layout, typographic hierarchy, and every single word and character must follow the structure below exactly, with zero distortion and perfect alignment (anti-aliased, vector-like sharpness):
+
+LABEL STRUCTURE START
+[LABEL_LAYOUT_GRID]
+LABEL STRUCTURE END`,
   },
   {
-    id: "material",
-    number: "09",
-    title: "Material Realism Module",
+    id: "style",
+    number: "04",
+    title: "Visual Style",
     description:
-      "Reforco de realismo dos materiais para reflexos, refracoes e texturas fidedignas.",
-    prompt: `Realistic plastic reflections, accurate glass refraction, cosmetic packaging material realism, high-fidelity label printing texture, subtle specular highlights.`,
+      "Define o estilo visual como fotografia comercial ultra-realista com qualidade de publicidade editorial profissional.",
+    prompt: `The visual style is an ultra-realistic, high-resolution commercial product photograph.
+
+The style is that of professional editorial advertising. It features studio lighting that highlights product details, soft and precise shadows, and an extremely sharp focus across the entire label area.
+
+The typography on the label must be optically clear and high resolution.`,
   },
   {
-    id: "error",
-    number: "10",
-    title: "Text Error Prevention",
+    id: "anti-hallucination",
+    number: "05",
+    title: "Anti-Hallucination",
     description:
-      "Estrategia anti-alucinacao para prevenir erros de texto comuns em modelos de IA.",
-    prompt: `No distorted text, no misspelled text, no fake letters, no random typography, perfect packaging typography, clean label layout, exact label replication.`,
+      "Estrategia de prevencao de erros para garantir tipografia perfeita sem texto distorcido, letras falsas ou caracteres aleatorios.",
+    prompt: `The final output must be completely free of misspelled text, distorted letters, or fake characters, ensuring perfect packaging typography and a clean, premium label design.`,
   },
 ]
 
@@ -125,14 +93,14 @@ export function ModulesSection() {
             Arquitetura de Prompt V5
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-            O framework e composto por 10 modulos especializados. Cada modulo foca em
-            um aspecto critico da geracao de labels. Clique para expandir e copiar o prompt
-            de cada modulo.
+            O framework e composto por 5 modulos estruturais. Cada modulo controla
+            um aspecto critico da geracao: cena, sujeito, rotulo, estilo e anti-alucinacao.
+            Clique para expandir e copiar.
           </p>
         </div>
 
         {/* Architecture overview */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-12">
+        <div className="grid grid-cols-5 gap-2 mb-12">
           {modules.map((mod) => (
             <button
               key={mod.id}
