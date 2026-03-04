@@ -87,59 +87,61 @@ export function TemplateSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <CopyBlock code={masterTemplate} label="master_prompt_v5.txt" />
-          </div>
+        <div className="flex flex-col gap-6">
+          <CopyBlock code={masterTemplate} label="master_prompt_v5.txt" />
 
-          <div className="flex flex-col gap-6">
-            <CopyBlock code={labelExample} label="output_example_avene.txt" />
+          <CopyBlock code={labelExample} label="output_example_avene.txt" />
 
-            {/* Grid legend */}
-            <div className="border border-border bg-card p-4">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground block mb-4">
-                ULGE Grid Model
-              </span>
+          {/* Grid legend */}
+          <div className="border border-border bg-card p-6">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground block mb-6">
+              ULGE Grid Model
+            </span>
 
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Columns */}
-              <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-2">
-                Columns
-              </span>
-              <div className="flex gap-2 mb-4">
-                {["LEFT", "CENTER", "RIGHT"].map((col) => (
-                  <span
-                    key={col}
-                    className="border border-border px-3 py-1.5 text-[10px] text-foreground tracking-wide flex-1 text-center"
-                  >
-                    {col}
-                  </span>
-                ))}
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-3">
+                  Columns
+                </span>
+                <div className="flex gap-2">
+                  {["LEFT", "CENTER", "RIGHT"].map((col) => (
+                    <span
+                      key={col}
+                      className="border border-border px-3 py-1.5 text-[10px] text-foreground tracking-wide flex-1 text-center"
+                    >
+                      {col}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Rows */}
-              <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-2">
-                Rows
-              </span>
-              <div className="flex flex-col gap-2">
-                {[
-                  { pos: "TOP", content: "brand_primary / brand_secondary" },
-                  { pos: "UPPER_MID", content: "product_line" },
-                  { pos: "CENTER", content: "product_type / description" },
-                  { pos: "LOWER_MID", content: "claims / ingredients" },
-                  { pos: "BOTTOM", content: "volume / design_elements" },
-                ].map((row) => (
-                  <div
-                    key={row.pos}
-                    className="flex items-center justify-between border-b border-border pb-2 last:border-0"
-                  >
-                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {row.pos}
-                    </span>
-                    <span className="text-[10px] text-foreground font-medium">
-                      {row.content}
-                    </span>
-                  </div>
-                ))}
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-3">
+                  Rows
+                </span>
+                <div className="flex flex-col gap-2">
+                  {[
+                    { pos: "TOP", content: "brand_primary / brand_secondary" },
+                    { pos: "UPPER_MID", content: "product_line" },
+                    { pos: "CENTER", content: "product_type / description" },
+                    { pos: "LOWER_MID", content: "claims / ingredients" },
+                    { pos: "BOTTOM", content: "volume / design_elements" },
+                  ].map((row) => (
+                    <div
+                      key={row.pos}
+                      className="flex items-center justify-between border-b border-border pb-2 last:border-0"
+                    >
+                      <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                        {row.pos}
+                      </span>
+                      <span className="text-[10px] text-foreground font-medium">
+                        {row.content}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
