@@ -22,7 +22,7 @@ const steps = [
   {
     id: "spf",
     label: "Super Prompt Formula V5",
-    description: "Framework completo de 10 modulos para geracao de alta fidelidade",
+    description: "Framework de 5 modulos estruturais para geracao de alta fidelidade",
     type: "process" as const,
   },
   {

@@ -282,12 +282,15 @@ export function UlgeSection() {
         <div className="mt-6 border border-accent/30 bg-accent/5 p-4 flex items-start gap-3">
           <ArrowRight size={14} className="text-accent mt-0.5 shrink-0" />
           <p className="text-xs leading-relaxed text-foreground">
-            O output do ULGE e ideal para pipelines de geracao de imagem. Use-o como input
-            direto para o campo{" "}
+            O output do ULGE e ideal para pipelines de geracao de imagem. Use o bloco{" "}
             <code className="bg-secondary px-1.5 py-0.5 text-[11px]">
-              [INSERT LABEL STRUCTURE]
+              label_layout_grid
             </code>{" "}
-            no Master Template V5.
+            como input direto para o campo{" "}
+            <code className="bg-secondary px-1.5 py-0.5 text-[11px]">
+              [LABEL_LAYOUT_GRID]
+            </code>{" "}
+            no Modulo 03 (Label Structure) do Master Template V5.
           </p>
         </div>
       </div>

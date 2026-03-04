@@ -1,37 +1,67 @@
 import { CopyBlock } from "./copy-block"
 
-const masterTemplate = `Use the reference image [REFERENCE].jpg as visual inspiration.
+const masterTemplate = `A photo-realistic commercial scene, meticulously designed using the 'Prompt Architecture V5' framework.
+This prompt is a technical instruction for a generative AI model to blend an existing product with a reference composition,
+achieving ultra-high-fidelity label rendering.
+- The overall scene, including composition, lighting palette, background textures, camera angle, shadows, and reflections, 
+must be a direct visual translation of the concepts found in the reference image provided as [IMAGEM_DE_REFERENCIA].jpg. 
+- This is the visual blueprint for the atmosphere and spatial arrangement.
+- The central subject of this composition is the exact container and bottle shape found in the product image provided as
+[IMAGEM_DO_PRODUTO].jpg. This is the object being placed into the scene. Its packaging proportions, material properties, 
+brand logo, and overall 
+color palette must be preserved with perfect fidelity.
+- The front label on the main bottle must be perfectly readable and textually precise. The layout, typographic hierarchy, and every single word 
+and character must follow the structure below exactly, with zero distortion and perfect alignment (anti-aliased, vector-like sharpness):
 
-Extract from the reference image: composition, lighting, background palette, camera angle, shadows, reflections.
+LABEL STRUCTURE START
+[LABEL_LAYOUT_GRID]
+LABEL STRUCTURE END
 
-The product used in the composition is attached as [PRODUCT].jpg.
+- The visual style is an ultra-realistic, high-resolution commercial product photograph. 
+- The style is that of professional editorial advertising. It features studio lighting that highlights 
+product details, soft and precise shadows, and an extremely sharp focus across the entire label area. 
+- The typography on the label must be optically clear and high resolution. 
+- The final output must be completely free of misspelled text, distorted letters, or fake characters,
+ensuring perfect packaging typography and a clean, premium label design.`
 
-Preserve packaging fidelity: bottle shape, packaging proportions, label layout, brand logo, colors and materials.
+const labelExample = `reference_image: produto_avene.jpg
+product_name: Hydrance Aqua-Gel
+brand: Avène
+category: dermocosmetic skincare
+container_type: glass jar
 
-Front label must be perfectly readable. Typography must be ultra sharp, high resolution, anti-aliased and optically clear.
+typography_hierarchy:
 
-Language of label: [INSERT LANGUAGE]
+  brand_primary: Avène
+  brand_secondary: EAU THERMALE
+  product_line: HYDRANCE
+  product_type: AQUA-GEL
+  description:
+    AQUA GEL-CRÈME HYDRATANT
+    HYDRATING AQUA CREAM-IN-GEL
+  claims: Made in France
+  volume: 50 ml e 1.6 fl.oz.
 
-Label layout grid: brand → product line → product type → benefits → ingredients → volume.
+label_layout_grid:
 
-Label text layout exactly as follows:
-[INSERT LABEL STRUCTURE]
+  left_section:
+    EAU THERMALE
+    Avène
+    LABORATOIRE DERMATOLOGIQUE
 
-sharp product label typography, editorial product photography, high resolution packaging text, vector-like label clarity
+  center_section:
+    HYDRANCE
+    AQUA-GEL
 
-Ultra realistic commercial product photography, studio lighting, soft shadows, extremely sharp focus
+  description_section:
+    AQUA GEL-CRÈME HYDRATANT
+    HYDRATING AQUA CREAM-IN-GEL
 
-no distorted text, no misspelled text, no fake letters, perfect packaging typography, clean label layout`
+  bottom_left: Made in France
+  bottom_right: 50 ml e 1.6 fl.oz.
 
-const labelExample = `RENE FURTERER PARIS
-TRIPHASIC
-ACTIVE GROW
-SHAMPOOING ACTIVATEUR DE POUSSE
-GROWTH ACTIVATOR SHAMPOO
-CHEVEUX PLUS LONGS, PLUS FORTS
-LONGER, STRONGER HAIR
-VITAMINE B8 + PROPOLIS
-500 ml e 16.9 FL.OZ.`
+design_elements:
+  thin horizontal blue line aligned with AQUA-GEL text`
 
 export function TemplateSection() {
   return (
@@ -53,45 +83,68 @@ export function TemplateSection() {
             Master Template V5
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-            O template completo combina todos os modulos em um unico prompt otimizado.
-            Substitua os campos entre colchetes com as informacoes do seu produto.
+            O template completo combina os 5 modulos estruturais em um unico prompt otimizado.
+            Substitua <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[IMAGEM_DE_REFERENCIA]</code>,{" "}
+            <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[IMAGEM_DO_PRODUTO]</code> e{" "}
+            <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[LABEL_LAYOUT_GRID]</code> com suas informacoes.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <CopyBlock code={masterTemplate} label="master_prompt_v5.txt" />
-          </div>
+        <div className="flex flex-col gap-6">
+          <CopyBlock code={masterTemplate} label="master_prompt_v5.txt" />
 
-          <div className="flex flex-col gap-6">
-            <CopyBlock code={labelExample} label="exemplo_label_structure.txt" />
+          <CopyBlock code={labelExample} label="output_example_avene.txt" />
 
-            {/* Grid legend */}
-            <div className="border border-border bg-card p-4">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground block mb-4">
-                Label Grid System
-              </span>
-              <div className="flex flex-col gap-2">
-                {[
-                  { pos: "Top", content: "Brand Name" },
-                  { pos: "Upper Mid", content: "Product Line" },
-                  { pos: "Center", content: "Product Type" },
-                  { pos: "Lower Mid", content: "Benefits" },
-                  { pos: "Lower", content: "Ingredients" },
-                  { pos: "Bottom", content: "Volume / Size" },
-                ].map((row) => (
-                  <div
-                    key={row.pos}
-                    className="flex items-center justify-between border-b border-border pb-2 last:border-0"
-                  >
-                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {row.pos}
+          {/* Grid legend */}
+          <div className="border border-border bg-card p-6">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground block mb-6">
+              ULGE Grid Model
+            </span>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Columns */}
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-3">
+                  Columns
+                </span>
+                <div className="flex gap-2">
+                  {["LEFT", "CENTER", "RIGHT"].map((col) => (
+                    <span
+                      key={col}
+                      className="border border-border px-3 py-1.5 text-[10px] text-foreground tracking-wide flex-1 text-center"
+                    >
+                      {col}
                     </span>
-                    <span className="text-xs text-foreground font-medium">
-                      {row.content}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Rows */}
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-3">
+                  Rows
+                </span>
+                <div className="flex flex-col gap-2">
+                  {[
+                    { pos: "TOP", content: "brand_primary / brand_secondary" },
+                    { pos: "UPPER_MID", content: "product_line" },
+                    { pos: "CENTER", content: "product_type / description" },
+                    { pos: "LOWER_MID", content: "claims / ingredients" },
+                    { pos: "BOTTOM", content: "volume / design_elements" },
+                  ].map((row) => (
+                    <div
+                      key={row.pos}
+                      className="flex items-center justify-between border-b border-border pb-2 last:border-0"
+                    >
+                      <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                        {row.pos}
+                      </span>
+                      <span className="text-[10px] text-foreground font-medium">
+                        {row.content}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

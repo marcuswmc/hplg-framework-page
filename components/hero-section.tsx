@@ -35,20 +35,20 @@ export function HeroSection() {
           estruturada e renderizacao fotorrealista.
         </p>
 
-        {/* Pillars */}
+        {/* 5 Modules */}
         <div className="flex flex-wrap justify-center gap-3 mt-4">
           {[
-            "Packaging Fidelity",
-            "Readable Typography",
-            "Label Hierarchy",
-            "Photorealistic Rendering",
+            "Scene Blueprint",
+            "Central Subject",
+            "Label Structure",
+            "Visual Style",
             "Anti-Hallucination",
-          ].map((pillar) => (
+          ].map((module) => (
             <span
-              key={pillar}
+              key={module}
               className="border border-border px-3 py-1.5 text-[11px] uppercase tracking-wider text-foreground"
             >
-              {pillar}
+              {module}
             </span>
           ))}
         </div>
