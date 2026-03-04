@@ -38,7 +38,7 @@ export function GallerySection() {
           </span>
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
             <span className="inline-block h-2 w-2 bg-accent" />
-            005
+            007
           </span>
         </div>
 

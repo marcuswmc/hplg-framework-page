@@ -5,9 +5,11 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { label: "Framework", href: "#framework" },
+  { label: "Pipeline", href: "#pipeline" },
   { label: "Modules", href: "#modules" },
-  { label: "Exemplos", href: "#gallery" },
+  { label: "ULGE", href: "#ulge" },
   { label: "Template", href: "#template" },
+  { label: "Exemplos", href: "#gallery" },
 ]
 
 export function Navigation() {
