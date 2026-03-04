@@ -23,15 +23,44 @@ Ultra realistic commercial product photography, studio lighting, soft shadows, e
 
 no distorted text, no misspelled text, no fake letters, perfect packaging typography, clean label layout`
 
-const labelExample = `RENE FURTERER PARIS
-TRIPHASIC
-ACTIVE GROW
-SHAMPOOING ACTIVATEUR DE POUSSE
-GROWTH ACTIVATOR SHAMPOO
-CHEVEUX PLUS LONGS, PLUS FORTS
-LONGER, STRONGER HAIR
-VITAMINE B8 + PROPOLIS
-500 ml e 16.9 FL.OZ.`
+const labelExample = `reference_image: produto_avene.jpg
+product_name: Hydrance Aqua-Gel
+brand: Avène
+category: dermocosmetic skincare
+container_type: glass jar
+
+typography_hierarchy:
+
+  brand_primary: Avène
+  brand_secondary: EAU THERMALE
+  product_line: HYDRANCE
+  product_type: AQUA-GEL
+  description:
+    AQUA GEL-CRÈME HYDRATANT
+    HYDRATING AQUA CREAM-IN-GEL
+  claims: Made in France
+  volume: 50 ml e 1.6 fl.oz.
+
+label_layout_grid:
+
+  left_section:
+    EAU THERMALE
+    Avène
+    LABORATOIRE DERMATOLOGIQUE
+
+  center_section:
+    HYDRANCE
+    AQUA-GEL
+
+  description_section:
+    AQUA GEL-CRÈME HYDRATANT
+    HYDRATING AQUA CREAM-IN-GEL
+
+  bottom_left: Made in France
+  bottom_right: 50 ml e 1.6 fl.oz.
+
+design_elements:
+  thin horizontal blue line aligned with AQUA-GEL text`
 
 export function TemplateSection() {
   return (
@@ -64,21 +93,40 @@ export function TemplateSection() {
           </div>
 
           <div className="flex flex-col gap-6">
-            <CopyBlock code={labelExample} label="exemplo_label_structure.txt" />
+            <CopyBlock code={labelExample} label="output_example_avene.txt" />
 
             {/* Grid legend */}
             <div className="border border-border bg-card p-4">
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground block mb-4">
-                Label Grid System
+                ULGE Grid Model
+              </span>
+
+              {/* Columns */}
+              <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-2">
+                Columns
+              </span>
+              <div className="flex gap-2 mb-4">
+                {["LEFT", "CENTER", "RIGHT"].map((col) => (
+                  <span
+                    key={col}
+                    className="border border-border px-3 py-1.5 text-[10px] text-foreground tracking-wide flex-1 text-center"
+                  >
+                    {col}
+                  </span>
+                ))}
+              </div>
+
+              {/* Rows */}
+              <span className="text-[9px] uppercase tracking-[0.2em] text-accent block mb-2">
+                Rows
               </span>
               <div className="flex flex-col gap-2">
                 {[
-                  { pos: "Top", content: "Brand Name" },
-                  { pos: "Upper Mid", content: "Product Line" },
-                  { pos: "Center", content: "Product Type" },
-                  { pos: "Lower Mid", content: "Benefits" },
-                  { pos: "Lower", content: "Ingredients" },
-                  { pos: "Bottom", content: "Volume / Size" },
+                  { pos: "TOP", content: "brand_primary / brand_secondary" },
+                  { pos: "UPPER_MID", content: "product_line" },
+                  { pos: "CENTER", content: "product_type / description" },
+                  { pos: "LOWER_MID", content: "claims / ingredients" },
+                  { pos: "BOTTOM", content: "volume / design_elements" },
                 ].map((row) => (
                   <div
                     key={row.pos}
@@ -87,7 +135,7 @@ export function TemplateSection() {
                     <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
                       {row.pos}
                     </span>
-                    <span className="text-xs text-foreground font-medium">
+                    <span className="text-[10px] text-foreground font-medium">
                       {row.content}
                     </span>
                   </div>
