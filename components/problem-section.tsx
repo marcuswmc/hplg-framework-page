@@ -33,8 +33,8 @@ export function ProblemSection() {
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-lg">
               O <strong className="text-foreground">Super Prompt Formula V5</strong> resolve isso
-              forcando o modelo a entender a embalagem usando uma{" "}
-              <strong className="text-foreground">arquitetura de prompt estruturada</strong>.
+              com <strong className="text-foreground">5 modulos estruturais</strong>: Scene Blueprint,
+              Central Subject, Label Structure, Visual Style e Anti-Hallucination.
             </p>
           </div>
 

@@ -83,8 +83,10 @@ export function TemplateSection() {
             Master Template V5
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-            O template completo combina todos os modulos em um unico prompt otimizado.
-            Substitua os campos entre colchetes com as informacoes do seu produto.
+            O template completo combina os 5 modulos estruturais em um unico prompt otimizado.
+            Substitua <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[IMAGEM_DE_REFERENCIA]</code>,{" "}
+            <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[IMAGEM_DO_PRODUTO]</code> e{" "}
+            <code className="text-foreground bg-secondary px-1.5 py-0.5 text-xs">[LABEL_LAYOUT_GRID]</code> com suas informacoes.
           </p>
         </div>
 
