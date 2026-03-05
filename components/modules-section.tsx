@@ -100,23 +100,23 @@ export function ModulesSection() {
         </div>
 
         {/* Architecture overview */}
-        <div className="grid grid-cols-5 gap-2 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-3 mb-12">
           {modules.map((mod) => (
             <button
               key={mod.id}
               onClick={() =>
                 setOpenModule(openModule === mod.id ? null : mod.id)
               }
-              className={`border p-3 text-left transition-all ${
+              className={`border p-3 md:p-4 text-left transition-all min-h-[78px] md:min-h-[92px] ${
                 openModule === mod.id
                   ? "border-accent bg-accent/5"
                   : "border-border hover:border-foreground/30"
               }`}
             >
-              <span className="text-[10px] text-muted-foreground block">
+              <span className="text-[10px] md:text-[11px] text-muted-foreground block">
                 {mod.number}
               </span>
-              <span className="text-[10px] md:text-[11px] font-semibold text-foreground uppercase tracking-wide leading-tight block mt-1">
+              <span className="text-[11px] md:text-xs font-semibold text-foreground uppercase tracking-wide leading-tight block mt-1.5">
                 {mod.title.replace(" Module", "")}
               </span>
             </button>

@@ -2,28 +2,28 @@ import Image from "next/image"
 
 const examples = [
   {
-    src: "/images/example-shampoo.jpg",
-    alt: "Exemplo de shampoo gerado com HPLG V5",
-    label: "Shampoo Premium",
-    model: "DALL-E / Midjourney",
+    src: "/images/example-avene.png",
+    alt: "Exemplo de rotulo gerado com HPLG V5",
+    label: "Avène Hydrance",
+    model: "Nano Banana 2 / Gemini 3",
   },
   {
-    src: "/images/example-skincare.jpg",
-    alt: "Exemplo de skincare gerado com HPLG V5",
-    label: "Skincare Cream",
-    model: "DALL-E / Midjourney",
+    src: "/images/example-klorane.png",
+    alt: "Exemplo de imagem gerada com HPLG V5",
+    label: "Klorane",
+    model: "Nano Banana 2 / Gemini 3",
   },
   {
-    src: "/images/example-perfume.jpg",
-    alt: "Exemplo de perfume gerado com HPLG V5",
-    label: "Fragrance Bottle",
-    model: "DALL-E / Midjourney",
+    src: "/images/example-rene.png",
+    alt: "Exemplo de composição gerada com HPLG V5",
+    label: "René Furterer",
+    model: "OpenAi / ChatGPT 5.2",
   },
   {
-    src: "/images/example-coffee.jpg",
-    alt: "Exemplo de cafe gerado com HPLG V5",
-    label: "Coffee Package",
-    model: "DALL-E / Midjourney",
+    src: "/images/example-avene-02.png",
+    alt: "Exemplo de gerado com HPLG V5",
+    label: "Avène Hydrance",
+    model: "Seedream 4 / Artlist.io",
   },
 ]
 

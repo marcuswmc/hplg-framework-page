@@ -6,7 +6,7 @@ export function HeroSection() {
       {/* Section label */}
       <div className="w-full max-w-7xl flex items-center justify-between mb-12">
         <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-          {"// SECTION: HERO"}
+          {"// SECTION: PROMPT FRAMEWORK"}
         </span>
         <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
           <span className="inline-block h-2 w-2 bg-accent" />

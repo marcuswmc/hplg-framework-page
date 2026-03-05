@@ -34,7 +34,7 @@ export function Footer() {
             {"// Framework para modelos de IA generativa"}
           </span>
           <div className="flex items-center gap-4">
-            {["Midjourney", "DALL-E", "Stable Diffusion", "Flux"].map((model) => (
+            {["Nano Banana", "Seedream", "Midjourney", "Flux"].map((model) => (
               <span
                 key={model}
                 className="text-[10px] uppercase tracking-widest text-muted-foreground"

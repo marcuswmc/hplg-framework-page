@@ -10,27 +10,17 @@ const firaCode = Fira_Code({
 })
 
 export const metadata: Metadata = {
-  title: 'HPLG Framework V5 — High-Fidelity Product Label Generation',
+  title: 'HPLG Framework — High-Fidelity Product Label Generation',
   description:
-    'Super Prompt Formula V5: Framework para gerar imagens de produtos com labels de alta fidelidade em modelos de IA. Tipografia legivel, hierarquia estruturada, renderizacao fotorrealista.',
-  generator: 'v0.app',
+    'Prompt Formula V5: Framework para gerar imagens de produtos com labels de alta fidelidade em modelos de IA. Tipografia legivel, hierarquia estruturada, renderizacao fotorrealista.',
   authors: [{ name: 'Marcus Dev', url: 'https://marcusdev.me' }],
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/favicon.png',
   },
 }
 
@@ -44,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt">
       <body className={`${firaCode.variable} font-mono antialiased`}>
         {children}
         <Analytics />
