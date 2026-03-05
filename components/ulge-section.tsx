@@ -265,7 +265,7 @@ export function UlgeSection() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Expected Output (Avene)
+              Expected Output (Example)
             </button>
           </div>
 

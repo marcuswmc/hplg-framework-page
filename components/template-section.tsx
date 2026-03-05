@@ -93,8 +93,6 @@ export function TemplateSection() {
         <div className="flex flex-col gap-6">
           <CopyBlock code={masterTemplate} label="master_prompt_v5.txt" />
 
-          <CopyBlock code={labelExample} label="output_example_avene.txt" />
-
         </div>
 
         {/* Reinforcement Tokens */}
